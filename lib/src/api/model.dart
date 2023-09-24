@@ -75,6 +75,12 @@ class Test {
   /// [Problem]s occurred during the test.
   final Iterable<Problem> problems;
 
+  /// The URL for the file in which the test was defined, or `null`.
+  final String? url;
+
+  /// The line in the file at which the test was defined, or `null`.
+  final int? line;
+
   /// Messages printed during the test.
   final Iterable<String> prints;
 
@@ -85,8 +91,8 @@ class Test {
 
   /// Creates a Test with the given [name], [duration], [skipReason],
   /// [problems], [prints] and [isHidden].
-  Test(this.name, this.duration, this.skipReason, Iterable<Problem> problems,
-      Iterable<String> prints, this.isHidden)
+  Test(this.name, this.duration, this.skipReason, this.url, this.line,
+      Iterable<Problem> problems, Iterable<String> prints, this.isHidden)
       : problems = List.unmodifiable(problems),
         prints = List.unmodifiable(prints);
 
